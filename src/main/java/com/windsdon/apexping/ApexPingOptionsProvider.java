@@ -86,49 +86,48 @@ public class ApexPingOptionsProvider {
 		ApexPingOptions defaultOptions = new ApexPingOptions();
 
 		ConfigBuilder builder = ConfigBuilder.create()
-				.setParentScreen(parent)
-				.setTitle(new TranslatableText("title.apexping.config"));
+			.setParentScreen(parent)
+			.setTitle(new TranslatableText("title.apexping.config"));
 
 		ConfigCategory server = builder.getOrCreateCategory(new TranslatableText("category.apexping.server"));
 
 		ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 		server.addEntry(
-				entryBuilder
-						.startStrField(new TranslatableText("option.apexping.server_addr"), options.serverAddress)
-						.setDefaultValue(defaultOptions.serverAddress)
-						.setErrorSupplier(s -> {
-							try {
-								URI uri = new URI(s);
+			entryBuilder
+				.startStrField(new TranslatableText("option.apexping.server_addr"), options.serverAddress)
+				.setDefaultValue(defaultOptions.serverAddress)
+				.setErrorSupplier(s -> {
+					try {
+						URI uri = new URI(s);
 
-								if (!uri.getScheme().equals("wss")) {
-									return Optional.of(new TranslatableText("option.apexping.server_addr.error.protocol"));
-								}
-							} catch (URISyntaxException e) {
-								return Optional.of(new TranslatableText("option.apexping.server_addr.error.invalid", e.getMessage()));
-							}
+						if (!uri.getScheme().equals("wss")) {
+							return Optional.of(new TranslatableText("option.apexping.server_addr.error.protocol"));
+						}
+					} catch (URISyntaxException e) {
+						return Optional.of(new TranslatableText("option.apexping.server_addr.error.invalid", e.getMessage()));
+					}
 
-							return Optional.empty();
-						})
-						.setTooltip(new TranslatableText("option.apexping.server_addr.tooltip"))
-						.setSaveConsumer(s -> options.serverAddress = s)
-						.build());
-
-		server.addEntry(
-				entryBuilder
-						.startStrField(new TranslatableText("option.apexping.server_token"), options.serverAuthToken)
-						.setDefaultValue(defaultOptions.serverAuthToken)
-						.setTooltip(new TranslatableText("option.apexping.server_token.tooltip"))
-						.setSaveConsumer(s -> options.serverAuthToken = s)
-						.build());
+					return Optional.empty();
+				})
+				.setTooltip(new TranslatableText("option.apexping.server_addr.tooltip"))
+				.setSaveConsumer(s -> options.serverAddress = s)
+				.build());
 
 		server.addEntry(
-				entryBuilder
-						.startStrField(new TranslatableText("option.apexping.group_id"), options.groupId)
-						.setDefaultValue(defaultOptions.groupId)
-						.setTooltip(new TranslatableText("option.apexping.group_id.tooltip"))
-						.setSaveConsumer(s -> options.groupId = s)
-						.build());
+			entryBuilder
+				.startStrField(new TranslatableText("option.apexping.server_token"), options.serverAuthToken)
+				.setDefaultValue(defaultOptions.serverAuthToken)
+				.setTooltip(new TranslatableText("option.apexping.server_token.tooltip"))
+				.setSaveConsumer(s -> options.serverAuthToken = s)
+				.build());
 
+		server.addEntry(
+			entryBuilder
+				.startStrField(new TranslatableText("option.apexping.group_id"), options.groupId)
+				.setDefaultValue(defaultOptions.groupId)
+				.setTooltip(new TranslatableText("option.apexping.group_id.tooltip"))
+				.setSaveConsumer(s -> options.groupId = s)
+				.build());
 		builder.alwaysShowTabs();
 
 		builder.setSavingRunnable(() -> {

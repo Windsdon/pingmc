@@ -1,9 +1,7 @@
-# Fabric Example Mod
+# Apex Ping
 
-## Setup
+[![build](https://github.com/Windsdon/pingmc/actions/workflows/build.yml/badge.svg)](https://github.com/Windsdon/pingmc/actions/workflows/build.yml)
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+Apex Ping is an upcoming client-only Fabric mod that lets you ping things in the world.
 
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+It uses a websocket-based event server, which you can self-host if you want. 
