@@ -1,0 +1,6 @@
+root = true
+
+[*.{java, json}]
+charset = utf-8
+indent_size = tab
+tab_width = 4

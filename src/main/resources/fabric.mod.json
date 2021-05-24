@@ -1,37 +1,42 @@
 {
-  "schemaVersion": 1,
-  "id": "modid",
-  "version": "${version}",
-
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
-  "authors": [
-    "Me!"
-  ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
-
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
-
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "net.fabricmc.example.ExampleMod"
-    ]
-  },
-  "mixins": [
-    "modid.mixins.json"
-  ],
-
-  "depends": {
-    "fabricloader": ">=0.7.4",
-    "fabric": "*",
-    "minecraft": "1.16.x"
-  },
-  "suggests": {
-    "another-mod": "*"
-  }
+	"schemaVersion": 1,
+	"id": "apexping",
+	"version": "${version}",
+	"name": "Apex Ping",
+	"description": "Client-only ping system inspired by Apex Legends",
+	"authors": [
+		"Windsdon"
+	],
+	"contact": {
+		"homepage": "https://github.com/Windsdon/pingmc",
+		"sources": "https://github.com/Windsdon/pingmc",
+		"issues": "https://github.com/Windsdon/pingmc/issues"
+	},
+	"license": "GPL-3.0-or-later",
+	"icon": "assets/apexping/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"com.windsdon.apexping.ApexPingMod"
+		],
+		"client": [
+			"com.windsdon.apexping.ApexPingClientMod"
+		],
+		"modmenu": [
+			"com.windsdon.apexping.OptionsMenuIntegration"
+		]
+	},
+	"mixins": [
+		"apexping.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.7.4",
+		"fabric": "*",
+		"minecraft": "1.16.x",
+		"cloth-config2": ">=4.11"
+	},
+	"custom": {
+		"modmenu": {
+		}
+	}
 }

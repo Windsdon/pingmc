@@ -1,0 +1,12 @@
+{
+	"title.apexping.config": "Apex Ping Configuration",
+	"category.apexping.server": "Server Options",
+	"option.apexping.server_addr": "Server address",
+	"option.apexping.server_addr.error.protocol": "Invalid protocol: must be wss",
+	"option.apexping.server_addr.error.invalid": "Invalid server URL: %s",
+	"option.apexping.server_addr.tooltip": "Websocket URL of the ping server",
+	"option.apexping.server_token": "Password",
+	"option.apexping.server_token.tooltip": "Used for authenticating with a private server",
+	"option.apexping.group_id": "Group ID",
+	"option.apexping.group_id.tooltip": "The ID of your party. Can be anything, everyone must set this to the same value."
+}
