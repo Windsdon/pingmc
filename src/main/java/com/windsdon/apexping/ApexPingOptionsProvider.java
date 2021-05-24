@@ -118,7 +118,8 @@ public class ApexPingOptionsProvider {
 					try {
 						URI uri = new URI(s);
 
-						if (!uri.getScheme().equals("wss")) {
+						String scheme = uri.getScheme();
+						if (!"wss".equals(scheme)) {
 							return Optional.of(new TranslatableText("option.apexping.server_addr.error.protocol"));
 						}
 					} catch (URISyntaxException e) {
